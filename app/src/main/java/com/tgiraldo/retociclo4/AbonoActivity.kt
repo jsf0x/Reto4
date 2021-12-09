@@ -34,6 +34,12 @@ class AbonoActivity : AppCompatActivity() {
                 Toast.makeText(this,R.string.text_action_settings, Toast.LENGTH_LONG).show()
                 return true
             }
+            R.id.action_nav -> {
+                Toast.makeText(this,R.string.text_action_nav, Toast.LENGTH_LONG).show()
+                val intento = Intent(this,DrawerActivity::class.java)
+                startActivity(intento)
+                return true
+            }
             R.id.action_logout -> {
                 Toast.makeText(this,R.string.text_action_logout, Toast.LENGTH_LONG).show()
                 val intento = Intent(this,MainActivity::class.java)

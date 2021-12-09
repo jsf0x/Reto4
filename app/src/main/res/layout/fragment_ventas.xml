@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".VentasFragment">
 
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_margin="2dp"
@@ -72,10 +72,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text=">" />
-    </LinearLayout>
-    <!--<androidx.recyclerview.widget.RecyclerView
+    </LinearLayout>-->
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerListaVentas"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />-->
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 </LinearLayout>

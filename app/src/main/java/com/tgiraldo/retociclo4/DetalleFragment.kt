@@ -6,6 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.room.Room
+import com.tgiraldo.retociclo4.room_database.VentaDatabase
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+
 //import androidx.room.Room
 //import com.example.appgrupo13.room_database.ToDoDatabase
 //import kotlinx.coroutines.launch
@@ -41,7 +46,7 @@ class DetalleFragment : Fragment() {
         // Inflate the layout for this fragment
         val fragmento: View = inflater.inflate(R.layout.fragment_detalle, container, false)
 
-        var venta = requireArguments().getString("venta")
+       /* var venta = requireArguments().getString("venta")
         var descripcion = requireArguments().getString("descripcion")
         var precio = requireArguments().getString("precio")
         val textViewVenta: TextView = fragmento.findViewById(R.id.textViewVenta)
@@ -49,34 +54,34 @@ class DetalleFragment : Fragment() {
         val textViewPrecio: TextView = fragmento.findViewById(R.id.textViewPrecio)
         textViewVenta.text = venta
         textViewDescripcion.text = descripcion
-        textViewPrecio.text = precio
+        textViewPrecio.text = precio*/
 
         return fragmento
     }
 
-    /*
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val textViewTarea: TextView = view.findViewById(R.id.textViewTarea)
-        val textViewHora: TextView = view.findViewById(R.id.textViewHora)
-        val textViewLugar: TextView = view.findViewById(R.id.textViewLugar)
+        val textViewTarea: TextView = view.findViewById(R.id.textViewArea)
+        val textViewHora: TextView = view.findViewById(R.id.textViewPrecio)
+        val textViewLugar: TextView = view.findViewById(R.id.textViewPrecio)
         var id = requireArguments().getInt("id")
-        val room: ToDoDatabase = Room.databaseBuilder(context?.applicationContext!!,
-            ToDoDatabase::class.java, "ToDoDatabaase").build()
-        var todoDao = room.todoDao()
+        val room: VentaDatabase = Room.databaseBuilder(context?.applicationContext!!,
+            VentaDatabase::class.java, "VentaDatabase").build()
+        var ventaDao = room.ventasDao()
         runBlocking {
             launch {
-                var result = todoDao.findById(id)
-                textViewTarea.text = result.title
-                textViewHora.text = result.time
-                textViewLugar.text = result.place
+                var result = ventaDao.findById(id)
+                textViewTarea.text = result.venta
+                textViewHora.text = result.descripcion
+                textViewLugar.text = result.precio
 
             }
         }
 
     }
 
-     */
+
 
     companion object {
         /**

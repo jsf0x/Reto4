@@ -5,10 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import androidx.navigation.Navigation
 //import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
+import com.tgiraldo.retociclo4.room_database.VentaDatabase
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+
+/*import androidx.room.Room
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking*/
+
 //import androidx.room.Room
 //import com.example.appgrupo13.room_database.ToDoDatabase
 //import kotlinx.coroutines.launch
@@ -43,7 +52,7 @@ class VentasFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val fragmento: View = inflater.inflate(R.layout.fragment_ventas, container, false)
-
+/*
         val detail1: Button = fragmento.findViewById(R.id.btn_detail_1)
         val detail2: Button = fragmento.findViewById(R.id.btn_detail_2)
         val detail3: Button = fragmento.findViewById(R.id.btn_detail_3)
@@ -67,50 +76,60 @@ class VentasFragment : Fragment() {
                 ?.addToBackStack("")
                 ?.commit()
         }
+        */
 
         return fragmento
     }
 
-    /*
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val recyclerTodoList: RecyclerView = view.findViewById(R.id.recyclerTodoList)
-        var datos: ArrayList<Task> = ArrayList()
-        val room: ToDoDatabase = Room.databaseBuilder(context?.applicationContext!!,
-            ToDoDatabase::class.java, "ToDoDatabaase").build()
-        var todoDao = room.todoDao()
+        val recyclerListaVentas: RecyclerView = view.findViewById(R.id.recyclerListaVentas)
+        var datos: ArrayList<Venta> = ArrayList()
+        val room: VentaDatabase = Room.databaseBuilder(context?.applicationContext!!,
+            VentaDatabase::class.java, "VentaDatabase").build()
+        var ventasDao = room.ventasDao()
+
         runBlocking {
             launch {
-                var result = todoDao.getAllTasks()
-                for (todo in result){
-                    datos.add(Task(todo.id, todo.title, todo.time, todo.place))
+                var result = ventasDao.getAllTasks()
+                for (venta in result){
+                    datos.add(Venta(venta.id, venta.venta, venta.descripcion, venta.precio))
                 }
             }
         }
+ /*       datos.add(Venta(0,"Ir al supermercado", "10:00", "Exito"))
+        datos.add(Venta(0, "Llevar carro a mantenimiento", "12:00", "Taller"))
+        datos.add(Venta(0, "Ir a lavanderia", "15:00", "Lavaseco"))*/
+
+/*        var ventaAdapter = VentaAdapter(datos)
+        recyclerListaVentas.setHasFixedSize(true)
+        recyclerListaVentas.adapter = ventaAdapter
+        recyclerListaVentas.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))*/
+
+        /*
+
 */
 
-    /*
-        var taskAdapter = TaskAdapter(datos){
+
+        var taskAdapter = VentaAdapter(datos) {
             val datos = Bundle()
             datos.putInt("id", it.id)
-/*
-            datos.putString("tarea", it.task)
-            datos.putString("hora", it.time)
-            datos.putString("lugar", it.place)
-*/
-            Navigation.findNavController(view).navigate(R.id.nav_detail, datos)
+
+
+ /*           datos.putString("venta", it.venta)
+            datos.putString("descripcion", it.descripcion)
+            datos.putString("precio", it.precio)*/
+
+            Navigation.findNavController(view).navigate(R.id.nav_detalle, datos)
         }
-        recyclerTodoList.setHasFixedSize(true)
-        recyclerTodoList.adapter = taskAdapter
-        recyclerTodoList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-/*
-        datos.add(Task("Ir al supermercado", "10:00", "Exito"))
-        datos.add(Task("Llevar carro a mantenimiento", "12:00", "Taller"))
-        datos.add(Task("Ir a lavanderia", "15:00", "Lavaseco"))
-*/
+        recyclerListaVentas.setHasFixedSize(true)
+        recyclerListaVentas.adapter = taskAdapter
+        recyclerListaVentas.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+
     }
 
-*/ //YO
+    //YO
 
     companion object {
         /**

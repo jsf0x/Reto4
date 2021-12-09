@@ -13,6 +13,10 @@
         android:title="@string/text_action_settings"
         app:showAsAction="always" />
     <item
+        android:id="@+id/action_nav"
+        android:icon="@mipmap/ic_launcher_round"
+        android:title="@string/text_action_nav" />
+    <item
         android:id="@+id/action_logout"
         android:icon="@android:drawable/ic_menu_close_clear_cancel"
         android:title="@string/text_action_logout"
