@@ -64,7 +64,8 @@ class DetalleFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val textViewTarea: TextView = view.findViewById(R.id.textViewArea)
         val textViewHora: TextView = view.findViewById(R.id.textViewPrecio)
-        val textViewLugar: TextView = view.findViewById(R.id.textViewPrecio)
+        val textViewLugar: TextView = view.findViewById(R.id.textViewCuota)
+        val textViewTotal: TextView = view.findViewById(R.id.textViewTotalDetalle)
         var id = requireArguments().getInt("id")
         val room: VentaDatabase = Room.databaseBuilder(context?.applicationContext!!,
             VentaDatabase::class.java, "VentaDatabase").build()
@@ -72,9 +73,10 @@ class DetalleFragment : Fragment() {
         runBlocking {
             launch {
                 var result = ventaDao.findById(id)
-                textViewTarea.text = result.venta
-                textViewHora.text = result.descripcion
-                textViewLugar.text = result.precio
+                textViewTarea.text = result.areaCortina
+                textViewHora.text = result.precio
+                textViewLugar.text = result.valorCuotaSemanal
+                textViewTotal.text = (result.precio.toDouble()*result.areaCortina.toDouble()).toString()
 
             }
         }

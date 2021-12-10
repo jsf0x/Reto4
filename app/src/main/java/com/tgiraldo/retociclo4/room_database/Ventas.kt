@@ -19,5 +19,7 @@ data class Ventas(
     val ancho: String,
     val alto: String,
     val cuotas: String,
+    val areaCortina: String,
+    val valorCuotaSemanal: String
 //    val saldo: String,
 )

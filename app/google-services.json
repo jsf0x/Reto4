@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "533482725199",
+    "project_id": "elventanal-ee058",
+    "storage_bucket": "elventanal-ee058.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533482725199:android:d4b4c41c4a071d9081ef3a",
+        "android_client_info": {
+          "package_name": "com.tgiraldo.retociclo4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533482725199-dmtloqir5g38u5dvrbt242i8vvgcqc0h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsMGwol5NB0skCEn6QEP0s--xm-7T3-DA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533482725199-dmtloqir5g38u5dvrbt242i8vvgcqc0h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
